@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>악보 검색</title>
+  <title>마비노기 모바일 악보 검색</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -129,7 +129,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
-      cursor: pointer;
+      cursor: pointer;           /* 카드에 손가락 커서 */
       transition: transform 0.05s ease, box-shadow 0.05s ease;
     }
 
@@ -194,39 +194,6 @@
       padding: 24px 0;
     }
 
-    /* 악보 등록 요청 섹션 */
-    .request-card {
-      margin-top: 24px;
-      background: #e5e7eb;
-      border-radius: 16px;
-      padding: 16px;
-      text-align: center;
-      font-size: 13px;
-      color: #374151;
-    }
-
-    .request-card p {
-      margin: 0 0 10px;
-    }
-
-    .request-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 18px;
-      border-radius: 999px;
-      background: #4f46e5;
-      color: white;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      border: none;
-    }
-
-    .request-btn:hover {
-      background: #4338ca;
-    }
-
     @media (max-width: 600px) {
       .score-card {
         flex-direction: column;
@@ -244,7 +211,7 @@
 <body>
   <header>
     <div>
-      <h1>악보 검색</h1>
+      <h1>마비노기 모바일 악보 검색</h1>
       <span>제목, 작곡가, 태그로 빠르게 찾아보세요.</span>
     </div>
   </header>
@@ -255,7 +222,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) 마비노기, 캐롤, JPOP 등..."
+          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) 어릴 적 할머니가 들려주신 옛 전설, 마비노기, 캐롤"
         />
       </div>
 
@@ -281,23 +248,10 @@
       <div class="result-summary" id="resultSummary"></div>
       <div class="result-list" id="resultList"></div>
     </section>
-
-    <!-- 🔽 구글 폼으로 악보 등록 요청 보내는 섹션 -->
-    <section class="request-card">
-      <p>본인의 악보가 없나요? 아래 버튼을 눌러 악보 등록을 요청해 주세요!</p>
-      <a
-        class="request-btn"
-        href="https://docs.google.com/forms/d/e/1FAIpQLScOXLq0UoC-MwgzidQnlQ3kVwBNz20I8FZtfC7lfJp1hMjFPA/viewform?usp=header"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        악보 등록 요청하기
-      </a>
-    </section>
   </main>
 
   <script>
-    // 샘플 악보 데이터 (나중에 서버/DB에서 가져오도록 변경 가능)
+    // 샘플 악보 데이터
     const scores = [
       {
         title: "HOI4 - Battle of Wuhan",
@@ -306,6 +260,54 @@
         difficulty: "4화음",
         tags: ["호이", "하츠오브아이언", "우한", "우한전투"],
         url: "https://gall.dcinside.com/enban/260356"
+      },
+      {
+        title: "Not So Far Away",
+        composer: "라그나로크 온라인",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["라그나로크 온라인", "게임", "BGM"],
+        url: "https://gall.dcinside.com/enban/687"
+      },
+       {
+        title: "난 좋아",
+        composer: "성시경",
+        instrument: "피아노",
+        difficulty: "6화음",
+        tags: ["성시경", "발라드", "KPOP"],
+        url: "https://gall.dcinside.com/enban/1106"
+      },
+      {
+        title: "귀멸의 칼날 무한성 브금",
+        composer: "귀멸의 칼날",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["귀멸의칼날", "귀칼", "무한성"],
+        url: "https://gall.dcinside.com/enban/3475"
+      },
+      {
+        title: "Happiness Bell",
+        composer: "a hisa",
+        instrument: "류트, 실로폰, 바이올린, 플룻",
+        difficulty: "6화음",
+        tags: ["해피니스 벨", "히사"],
+        url: "https://gall.dcinside.com/enban/3885"
+      },
+      {
+        title: "따잇하는 재미",
+        composer: "메벤남",
+        instrument: "만돌린, 샬루모, 바이올린, 플루트",
+        difficulty: "4화음",
+        tags: ["창팝", "메이플", "신창섭", "메벤남"],
+        url: "https://gall.dcinside.com/enban/4125"
+      },
+      {
+        title: "String Theocracy(실의 신권정치)",
+        composer: "Mili",
+        instrument: "피아노, 실로폰, 샬루모, 류트",
+        difficulty: "6화음",
+        tags: ["라이브러리 오브 루이나", "OST"],
+        url: "https://gall.dcinside.com/enban/4373"
       }
       // 여기에 다른 악보도 계속 추가
     ];
@@ -325,7 +327,7 @@
         return;
       }
 
-      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다.`;
+      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다. 검색 결과 클릭 시 자동으로 이동됩니다.`;
 
       list.forEach((score) => {
         const card = document.createElement("article");
@@ -362,7 +364,7 @@
         card.appendChild(main);
         card.appendChild(diff);
 
-        // 카드 전체 클릭 시 게시글로 이동
+        // ✅ 카드 전체 클릭 시 게시글로 이동
         if (score.url) {
           card.addEventListener("click", () => {
             window.open(score.url, "_blank", "noopener,noreferrer");
@@ -401,6 +403,5 @@
   </script>
 </body>
 </html>
-
 
 
