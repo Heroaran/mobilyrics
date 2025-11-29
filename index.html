@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>악보 검색</title>
+  <title>마비노기 모바일 악보 검색</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -129,6 +129,13 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
+      cursor: pointer;           /* 카드에 손가락 커서 */
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+    }
+
+    .score-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
     }
 
     .score-main {
@@ -169,7 +176,7 @@
       min-width: 60px;
     }
 
-    /* 화음별 스타일 (원하면 색 바꿔도 됨) */
+    /* 화음별 스타일 */
     .difficulty-1화음,
     .difficulty-2화음,
     .difficulty-3화음,
@@ -204,7 +211,7 @@
 <body>
   <header>
     <div>
-      <h1>악보 검색</h1>
+      <h1>마비노기 모바일 악보 검색</h1>
       <span>제목, 작곡가, 태그로 빠르게 찾아보세요.</span>
     </div>
   </header>
@@ -215,7 +222,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) HOI4, 우한, 크리스마스"
+          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) 어릴 적 할머니가 들려주신 옛 전설, 마비노기, 한스톤"
         />
       </div>
 
@@ -244,7 +251,7 @@
   </main>
 
   <script>
-    // 샘플 악보 데이터 (나중에 서버/DB에서 가져오도록 변경 가능)
+    // 샘플 악보 데이터
     const scores = [
       {
         title: "HOI4 - Battle of Wuhan",
@@ -254,7 +261,7 @@
         tags: ["호이", "하츠오브아이언", "우한", "우한전투"],
         url: "https://gall.dcinside.com/enban/260356"
       }
-      // 여기에 다른 악보도 계속 추가하면 됨
+      // 여기에 다른 악보도 계속 추가
     ];
 
     const searchInput = document.getElementById("searchInput");
@@ -272,7 +279,7 @@
         return;
       }
 
-      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다.`;
+      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다. 검색 결과 클릭 시 자동으로 이동됩니다.`;
 
       list.forEach((score) => {
         const card = document.createElement("article");
@@ -302,29 +309,19 @@
         main.appendChild(meta);
         main.appendChild(tags);
 
-        // 🔗 게시글 링크
-        if (score.url) {
-          const link = document.createElement("a");
-          link.href = score.url;
-          link.textContent = "게시글로 이동";
-          link.target = "_blank"; // 새 탭에서 열기
-          link.rel = "noopener noreferrer";
-          link.style.display = "inline-block";
-          link.style.marginTop = "6px";
-          link.style.fontSize = "12px";
-          link.style.color = "#2563eb";
-          link.style.textDecoration = "none";
-          link.style.fontWeight = "500";
-
-          main.appendChild(link);
-        }
-
         const diff = document.createElement("div");
         diff.className = `difficulty difficulty-${score.difficulty}`;
         diff.textContent = score.difficulty;
 
         card.appendChild(main);
         card.appendChild(diff);
+
+        // ✅ 카드 전체 클릭 시 게시글로 이동
+        if (score.url) {
+          card.addEventListener("click", () => {
+            window.open(score.url, "_blank", "noopener,noreferrer");
+          });
+        }
 
         resultList.appendChild(card);
       });
