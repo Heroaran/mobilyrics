@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>악보 검색</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f4f5;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header span {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+
+    .search-card {
+      background: white;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .search-row input[type="text"] {
+      flex: 1 1 200px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-row input[type="text"]:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    select {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      outline: none;
+      font-size: 13px;
+      background: white;
+    }
+
+    .reset-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: none;
+      font-size: 12px;
+      cursor: pointer;
+      background: #e5e7eb;
+    }
+
+    .reset-btn:hover {
+      background: #d1d5db;
+    }
+
+    .result-summary {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .result-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .score-card {
+      background: white;
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .score-main {
+      flex: 1;
+    }
+
+    .score-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .score-meta {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .score-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .tag {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4f46e5;
+    }
+
+    .difficulty {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .difficulty-초급 {
+      background: #ecfdf5;
+      color: #15803d;
+    }
+
+    .difficulty-중급 {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .difficulty-고급 {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .no-result {
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    @media (max-width: 600px) {
+      .score-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>악보 검색</h1>
+      <span>제목, 작곡가, 태그로 빠르게 찾아보세요.</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-card">
+      <div class="search-row">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) River flows in you, 쇼팽, 크리스마스"
+        />
+      </div>
+
+      <div class="filter-row">
+        <div class="filter-group">
+          <label for="instrumentFilter">악기</label>
+          <select id="instrumentFilter">
+            <option value="">전체</option>
+            <option value="피아노">피아노</option>
+            <option value="기타">기타</option>
+            <option value="바이올린">바이올린</option>
+            <option value="플루트">플루트</option>
+          </select>
+
+          <label for="difficultyFilter">난이도</label>
+          <select id="difficultyFilter">
+            <option value="">전체</option>
+            <option value="초급">초급</option>
+            <option value="중급">중급</option>
+            <option value="고급">고급</option>
+          </select>
+        </div>
+
+        <button class="reset-btn" id="resetBtn">필터 초기화</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="result-summary" id="resultSummary"></div>
+      <div class="result-list" id="resultList"></div>
+    </section>
+  </main>
+
+  <script>
+    // 샘플 악보 데이터 (나중에 서버/DB에서 가져오도록 변경 가능)
+    const scores = [
+      {
+        title: "River Flows in You",
+        composer: "Yiruma",
+        instrument: "피아노",
+        difficulty: "중급",
+        tags: ["뉴에이지", "발라드", "유명곡"]
+      },
+      {
+        title: "Canon in D",
+        composer: "Pachelbel",
+        instrument: "피아노",
+        difficulty: "초급",
+        tags: ["웨딩", "클래식", "잔잔한"]
+      },
+      {
+        title: "Nocturne Op.9 No.2",
+        composer: "Chopin",
+        instrument: "피아노",
+        difficulty: "고급",
+        tags: ["쇼팽", "클래식", "야상곡"]
+      },
+      {
+        title: "Let It Be",
+        composer: "The Beatles",
+        instrument: "기타",
+        difficulty: "초급",
+        tags: ["팝", "비틀즈", "코드연습"]
+      },
+      {
+        title: "Christmas Medley",
+        composer: "Various",
+        instrument: "바이올린",
+        difficulty: "중급",
+        tags: ["크리스마스", "캐롤", "메들리"]
+      }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const instrumentFilter = document.getElementById("instrumentFilter");
+    const difficultyFilter = document.getElementById("difficultyFilter");
+    const resultList = document.getElementById("resultList");
+    const resultSummary = document.getElementById("resultSummary");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function renderScores(list) {
+      resultList.innerHTML = "";
+
+      if (list.length === 0) {
+        resultSummary.textContent = "검색 결과가 없습니다.";
+        resultList.innerHTML = '<div class="no-result">조건을 바꿔 다시 검색해 보세요.</div>';
+        return;
+      }
+
+      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다.`;
+
+      list.forEach((score) => {
+        const card = document.createElement("article");
+        card.className = "score-card";
+
+        const main = document.createElement("div");
+        main.className = "score-main";
+
+        const title = document.createElement("div");
+        title.className = "score-title";
+        title.textContent = score.title;
+
+        const meta = document.createElement("div");
+        meta.className = "score-meta";
+        meta.textContent = `${score.composer} · ${score.instrument}`;
+
+        const tags = document.createElement("div");
+        tags.className = "score-tags";
+        score.tags.forEach((t) => {
+          const span = document.createElement("span");
+          span.className = "tag";
+          span.textContent = t;
+          tags.appendChild(span);
+        });
+
+        main.appendChild(title);
+        main.appendChild(meta);
+        main.appendChild(tags);
+
+        const diff = document.createElement("div");
+        diff.className = `difficulty difficulty-${score.difficulty}`;
+        diff.textContent = score.difficulty;
+
+        card.appendChild(main);
+        card.appendChild(diff);
+
+        resultList.appendChild(card);
+      });
+    }
+
+    function filterScores() {
+      const q = searchInput.value.trim().toLowerCase();
+      const instrument = instrumentFilter.value;
+      const difficulty = difficultyFilter.value;
+
+      const filtered = scores.filter((s) => {
+        const text =
+          (s.title + " " + s.composer + " " + s.tags.join(" ")).toLowerCase();
+        const matchQuery = q === "" || text.includes(q);
+        const matchInstrument =
+          instrument === "" || s.instrument === instrument;
+        const matchDifficulty =
+          difficulty === "" || s.difficulty === difficulty;
+        return matchQuery && matchInstrument && matchDifficulty;
+      });
+
+      renderScores(filtered);
+    }
+
+    searchInput.addEventListener("input", filterScores);
+    instrumentFilter.addEventListener("change", filterScores);
+    difficultyFilter.addEventListener("change", filterScores);
+
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      instrumentFilter.value = "";
+      difficultyFilter.value = "";
+      filterScores();
+    });
+
+    // 처음 로드 시 전체 목록 표시
+    renderScores(scores);
+  </script>
+</body>
+</html>
