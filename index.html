@@ -169,19 +169,15 @@
       min-width: 60px;
     }
 
-    .difficulty-초급 {
-      background: #ecfdf5;
-      color: #15803d;
-    }
-
-    .difficulty-중급 {
+    /* 화음별 스타일 (원하면 색 바꿔도 됨) */
+    .difficulty-1화음,
+    .difficulty-2화음,
+    .difficulty-3화음,
+    .difficulty-4화음,
+    .difficulty-5화음,
+    .difficulty-6화음 {
       background: #eff6ff;
       color: #1d4ed8;
-    }
-
-    .difficulty-고급 {
-      background: #fef2f2;
-      color: #b91c1c;
     }
 
     .no-result {
@@ -219,7 +215,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) River flows in you, 쇼팽, 크리스마스"
+          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) HOI4, 우한, 크리스마스"
         />
       </div>
 
@@ -255,13 +251,13 @@
         composer: "패러독스사",
         instrument: "피아노",
         difficulty: "4화음",
-        tags: ["호이", "하츠오브아이언", "우한", "우한전투"]
+        tags: ["호이", "하츠오브아이언", "우한", "우한전투"],
         url: "https://gall.dcinside.com/enban/260356"
       }
+      // 여기에 다른 악보도 계속 추가하면 됨
     ];
 
     const searchInput = document.getElementById("searchInput");
-    const instrumentFilter = document.getElementById("instrumentFilter");
     const difficultyFilter = document.getElementById("difficultyFilter");
     const resultList = document.getElementById("resultList");
     const resultSummary = document.getElementById("resultSummary");
@@ -306,6 +302,23 @@
         main.appendChild(meta);
         main.appendChild(tags);
 
+        // 🔗 게시글 링크
+        if (score.url) {
+          const link = document.createElement("a");
+          link.href = score.url;
+          link.textContent = "게시글로 이동";
+          link.target = "_blank"; // 새 탭에서 열기
+          link.rel = "noopener noreferrer";
+          link.style.display = "inline-block";
+          link.style.marginTop = "6px";
+          link.style.fontSize = "12px";
+          link.style.color = "#2563eb";
+          link.style.textDecoration = "none";
+          link.style.fontWeight = "500";
+
+          main.appendChild(link);
+        }
+
         const diff = document.createElement("div");
         diff.className = `difficulty difficulty-${score.difficulty}`;
         diff.textContent = score.difficulty;
@@ -319,30 +332,23 @@
 
     function filterScores() {
       const q = searchInput.value.trim().toLowerCase();
-      const instrument = instrumentFilter.value;
       const difficulty = difficultyFilter.value;
 
       const filtered = scores.filter((s) => {
-        const text =
-          (s.title + " " + s.composer + " " + s.tags.join(" ")).toLowerCase();
+        const text = (s.title + " " + s.composer + " " + s.tags.join(" ")).toLowerCase();
         const matchQuery = q === "" || text.includes(q);
-        const matchInstrument =
-          instrument === "" || s.instrument === instrument;
-        const matchDifficulty =
-          difficulty === "" || s.difficulty === difficulty;
-        return matchQuery && matchInstrument && matchDifficulty;
+        const matchDifficulty = difficulty === "" || s.difficulty === difficulty;
+        return matchQuery && matchDifficulty;
       });
 
       renderScores(filtered);
     }
 
     searchInput.addEventListener("input", filterScores);
-    instrumentFilter.addEventListener("change", filterScores);
     difficultyFilter.addEventListener("change", filterScores);
 
     resetBtn.addEventListener("click", () => {
       searchInput.value = "";
-      instrumentFilter.value = "";
       difficultyFilter.value = "";
       filterScores();
     });
@@ -351,6 +357,4 @@
     renderScores(scores);
   </script>
 </body>
-
 </html>
-
