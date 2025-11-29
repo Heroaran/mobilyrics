@@ -46,7 +46,7 @@
       border-radius: 16px;
       padding: 16px;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .search-row {
@@ -129,7 +129,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
-      cursor: pointer;           /* 카드에 손가락 커서 */
+      cursor: pointer;
       transition: transform 0.05s ease, box-shadow 0.05s ease;
     }
 
@@ -194,6 +194,39 @@
       padding: 24px 0;
     }
 
+    /* 악보 등록 요청 섹션 */
+    .request-card {
+      margin: 0 0 20px;
+      background: #e5e7eb;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .request-card p {
+      margin: 0 0 10px;
+    }
+
+    .request-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #4f46e5;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+    }
+
+    .request-btn:hover {
+      background: #4338ca;
+    }
+
     @media (max-width: 600px) {
       .score-card {
         flex-direction: column;
@@ -217,6 +250,7 @@
   </header>
 
   <main>
+    <!-- 검색 필터 -->
     <section class="search-card">
       <div class="search-row">
         <input
@@ -244,6 +278,20 @@
       </div>
     </section>
 
+    <!-- 🔼 검색창 바로 아래: 악보 등록 요청 카드 -->
+    <section class="request-card">
+      <p>본인의 악보가 없나요? 아래 버튼을 눌러 악보 등록을 요청해 주세요!</p>
+      <a
+        class="request-btn"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScOXLq0UoC-MwgzidQnlQ3kVwBNz20I8FZtfC7lfJp1hMjFPA/viewform?usp=header"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        악보 등록 요청하기
+      </a>
+    </section>
+
+    <!-- 검색 결과 -->
     <section>
       <div class="result-summary" id="resultSummary"></div>
       <div class="result-list" id="resultList"></div>
@@ -253,6 +301,14 @@
   <script>
     // 샘플 악보 데이터
     const scores = [
+      {
+        title: "배찌 뒹굴뒹굴 (빌리지 bgm) ",
+        composer: "카트라이더",
+        instrument: "바이올린, 피아노",
+        difficulty: "6화음",
+        tags: ["카트라이더", "빌리지", "넥슨"], (선택)
+        url: "https://gall.dcinside.com/enban/199030"
+      },
       {
         title: "HOI4 - Battle of Wuhan",
         composer: "패러독스사",
@@ -269,7 +325,7 @@
         tags: ["라그나로크 온라인", "게임", "BGM"],
         url: "https://gall.dcinside.com/enban/687"
       },
-       {
+      {
         title: "난 좋아",
         composer: "성시경",
         instrument: "피아노",
@@ -327,7 +383,8 @@
         return;
       }
 
-      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다. 검색 결과 클릭 시 자동으로 이동됩니다.`;
+      resultSummary.textContent =
+        `${list.length}개의 악보가 검색되었습니다. 검색 결과 클릭 시 자동으로 이동됩니다.`;
 
       list.forEach((score) => {
         const card = document.createElement("article");
@@ -364,7 +421,7 @@
         card.appendChild(main);
         card.appendChild(diff);
 
-        // ✅ 카드 전체 클릭 시 게시글로 이동
+        // 카드 클릭 시 게시글로 이동
         if (score.url) {
           card.addEventListener("click", () => {
             window.open(score.url, "_blank", "noopener,noreferrer");
@@ -376,32 +433,4 @@
     }
 
     function filterScores() {
-      const q = searchInput.value.trim().toLowerCase();
-      const difficulty = difficultyFilter.value;
-
-      const filtered = scores.filter((s) => {
-        const text = (s.title + " " + s.composer + " " + s.tags.join(" ")).toLowerCase();
-        const matchQuery = q === "" || text.includes(q);
-        const matchDifficulty = difficulty === "" || s.difficulty === difficulty;
-        return matchQuery && matchDifficulty;
-      });
-
-      renderScores(filtered);
-    }
-
-    searchInput.addEventListener("input", filterScores);
-    difficultyFilter.addEventListener("change", filterScores);
-
-    resetBtn.addEventListener("click", () => {
-      searchInput.value = "";
-      difficultyFilter.value = "";
-      filterScores();
-    });
-
-    // 처음 로드 시 전체 목록 표시
-    renderScores(scores);
-  </script>
-</body>
-</html>
-
-
+      const q = searchInput.value.trim().t
