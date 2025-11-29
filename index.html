@@ -262,6 +262,19 @@
 
       <div class="filter-row">
         <div class="filter-group">
+          <label for="instrumentFilter">추천 악기</label>
+          <select id="instrumentFilter">
+            <option value="">전체</option>
+            <option value="피아노">피아노</option>
+            <option value="바이올린">바이올린</option>
+            <option value="류트">류트</option>
+            <option value="만돌린">만돌린</option>
+            <option value="플루트">플루트</option>
+            <option value="큰북">큰북</option>
+            <option value="실로폰">실로폰</option>
+            <option value="샬루모">샬루모</option>
+          </select>
+
           <label for="difficultyFilter">화음</label>
           <select id="difficultyFilter">
             <option value="">전체</option>
@@ -274,11 +287,18 @@
           </select>
         </div>
 
-        <button class="reset-btn" id="resetBtn">필터 초기화</button>
+        <div class="filter-group">
+          <label for="soloFilter">
+            <input type="checkbox" id="soloFilter" />
+            독주 가능한 곡만
+          </label>
+
+          <button class="reset-btn" id="resetBtn">필터 초기화</button>
+        </div>
       </div>
     </section>
 
-    <!-- 🔼 검색창 바로 아래: 악보 등록 요청 카드 -->
+    <!-- 악보 등록 요청 카드 -->
     <section class="request-card">
       <p>본인의 악보가 없나요? 아래 버튼을 눌러 악보 등록을 요청해 주세요!</p>
       <a
@@ -302,12 +322,13 @@
     // 샘플 악보 데이터
     const scores = [
       {
-        title: "배찌 뒹굴뒹굴 (빌리지 bgm) ",
+        title: "배찌 뒹굴뒹굴 (빌리지 bgm)",
         composer: "카트라이더",
         instrument: "바이올린, 피아노",
         difficulty: "6화음",
-        tags: ["카트라이더", "빌리지", "넥슨"], (선택)
-        url: "https://gall.dcinside.com/enban/199030"
+        tags: ["카트라이더", "빌리지", "넥슨"],
+        url: "https://gall.dcinside.com/enban/199030",
+        solo: true
       },
       {
         title: "HOI4 - Battle of Wuhan",
@@ -315,7 +336,8 @@
         instrument: "피아노",
         difficulty: "4화음",
         tags: ["호이", "하츠오브아이언", "우한", "우한전투"],
-        url: "https://gall.dcinside.com/enban/260356"
+        url: "https://gall.dcinside.com/enban/260356",
+        solo: true
       },
       {
         title: "Not So Far Away",
@@ -323,7 +345,8 @@
         instrument: "피아노",
         difficulty: "3화음",
         tags: ["라그나로크 온라인", "게임", "BGM"],
-        url: "https://gall.dcinside.com/enban/687"
+        url: "https://gall.dcinside.com/enban/687",
+        solo: true
       },
       {
         title: "난 좋아",
@@ -331,7 +354,8 @@
         instrument: "피아노",
         difficulty: "6화음",
         tags: ["성시경", "발라드", "KPOP"],
-        url: "https://gall.dcinside.com/enban/1106"
+        url: "https://gall.dcinside.com/enban/1106",
+        solo: true
       },
       {
         title: "귀멸의 칼날 무한성 브금",
@@ -339,7 +363,8 @@
         instrument: "피아노",
         difficulty: "3화음",
         tags: ["귀멸의칼날", "귀칼", "무한성"],
-        url: "https://gall.dcinside.com/enban/3475"
+        url: "https://gall.dcinside.com/enban/3475",
+        solo: true
       },
       {
         title: "Happiness Bell",
@@ -347,7 +372,8 @@
         instrument: "류트, 실로폰, 바이올린, 플룻",
         difficulty: "6화음",
         tags: ["해피니스 벨", "히사"],
-        url: "https://gall.dcinside.com/enban/3885"
+        url: "https://gall.dcinside.com/enban/3885",
+        solo: true
       },
       {
         title: "따잇하는 재미",
@@ -355,7 +381,8 @@
         instrument: "만돌린, 샬루모, 바이올린, 플루트",
         difficulty: "4화음",
         tags: ["창팝", "메이플", "신창섭", "메벤남"],
-        url: "https://gall.dcinside.com/enban/4125"
+        url: "https://gall.dcinside.com/enban/4125",
+        solo: true
       },
       {
         title: "String Theocracy(실의 신권정치)",
@@ -363,13 +390,16 @@
         instrument: "피아노, 실로폰, 샬루모, 류트",
         difficulty: "6화음",
         tags: ["라이브러리 오브 루이나", "OST"],
-        url: "https://gall.dcinside.com/enban/4373"
+        url: "https://gall.dcinside.com/enban/4373",
+        solo: true
       }
       // 여기에 다른 악보도 계속 추가
     ];
 
     const searchInput = document.getElementById("searchInput");
     const difficultyFilter = document.getElementById("difficultyFilter");
+    const instrumentFilter = document.getElementById("instrumentFilter");
+    const soloFilter = document.getElementById("soloFilter");
     const resultList = document.getElementById("resultList");
     const resultSummary = document.getElementById("resultSummary");
     const resetBtn = document.getElementById("resetBtn");
@@ -379,7 +409,8 @@
 
       if (list.length === 0) {
         resultSummary.textContent = "검색 결과가 없습니다.";
-        resultList.innerHTML = '<div class="no-result">조건을 바꿔 다시 검색해 보세요.</div>';
+        resultList.innerHTML =
+          '<div class="no-result">조건을 바꿔 다시 검색해 보세요.</div>';
         return;
       }
 
@@ -403,12 +434,20 @@
 
         const tags = document.createElement("div");
         tags.className = "score-tags";
+
+        // 기존 태그
         score.tags.forEach((t) => {
           const span = document.createElement("span");
           span.className = "tag";
           span.textContent = t;
           tags.appendChild(span);
         });
+
+        // 독주/합주 태그 추가
+        const soloTag = document.createElement("span");
+        soloTag.className = "tag";
+        soloTag.textContent = score.solo ? "독주 가능" : "합주 추천";
+        tags.appendChild(soloTag);
 
         main.appendChild(title);
         main.appendChild(meta);
@@ -433,4 +472,22 @@
     }
 
     function filterScores() {
-      const q = searchInput.value.trim().t
+      const q = searchInput.value.trim().toLowerCase();
+      const difficulty = difficultyFilter.value;
+      const instrument = instrumentFilter.value;
+      const soloOnly = soloFilter.checked;
+
+      const filtered = scores.filter((s) => {
+        const text = (
+          s.title +
+          " " +
+          s.composer +
+          " " +
+          s.tags.join(" ")
+        ).toLowerCase();
+
+        const matchQuery = q === "" || text.includes(q);
+        const matchDifficulty =
+          difficulty === "" || s.difficulty === difficulty;
+        const matchInstrument =
+          instrument === "" || s.recommende
