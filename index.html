@@ -489,5 +489,39 @@
         const matchQuery = q === "" || text.includes(q);
         const matchDifficulty =
           difficulty === "" || s.difficulty === difficulty;
-        const matchInstrument =
-          instrument === "" || s.recommende
+
+        // instrument 문자열 분해해서 포함 여부 체크
+        let matchInstrument = true;
+        if (instrument !== "") {
+          const instrumentList = s.instrument
+            .split(",")
+            .map((v) => v.trim());
+          matchInstrument = instrumentList.includes(instrument);
+        }
+
+        const matchSolo = !soloOnly || s.solo === true;
+
+        return matchQuery && matchDifficulty && matchInstrument && matchSolo;
+      });
+
+      renderScores(filtered);
+    }
+
+    searchInput.addEventListener("input", filterScores);
+    difficultyFilter.addEventListener("change", filterScores);
+    instrumentFilter.addEventListener("change", filterScores);
+    soloFilter.addEventListener("change", filterScores);
+
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      difficultyFilter.value = "";
+      instrumentFilter.value = "";
+      soloFilter.checked = false;
+      filterScores();
+    });
+
+    // 처음 로드 시 전체 목록 표시
+    renderScores(scores);
+  </script>
+</body>
+</html>
