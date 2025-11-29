@@ -225,21 +225,15 @@
 
       <div class="filter-row">
         <div class="filter-group">
-          <label for="instrumentFilter">악기</label>
-          <select id="instrumentFilter">
-            <option value="">전체</option>
-            <option value="피아노">피아노</option>
-            <option value="기타">기타</option>
-            <option value="바이올린">바이올린</option>
-            <option value="플루트">플루트</option>
-          </select>
-
-          <label for="difficultyFilter">난이도</label>
+          <label for="difficultyFilter">화음</label>
           <select id="difficultyFilter">
             <option value="">전체</option>
-            <option value="초급">초급</option>
-            <option value="중급">중급</option>
-            <option value="고급">고급</option>
+            <option value="1화음">1화음</option>
+            <option value="2화음">2화음</option>
+            <option value="3화음">3화음</option>
+            <option value="4화음">4화음</option>
+            <option value="5화음">5화음</option>
+            <option value="6화음">6화음</option>
           </select>
         </div>
 
@@ -257,39 +251,11 @@
     // 샘플 악보 데이터 (나중에 서버/DB에서 가져오도록 변경 가능)
     const scores = [
       {
-        title: "River Flows in You",
-        composer: "Yiruma",
+        title: "HOI4 - Battle of Wuhan",
+        composer: "패러독스사",
         instrument: "피아노",
-        difficulty: "중급",
-        tags: ["뉴에이지", "발라드", "유명곡"]
-      },
-      {
-        title: "Canon in D",
-        composer: "Pachelbel",
-        instrument: "피아노",
-        difficulty: "초급",
-        tags: ["웨딩", "클래식", "잔잔한"]
-      },
-      {
-        title: "Nocturne Op.9 No.2",
-        composer: "Chopin",
-        instrument: "피아노",
-        difficulty: "고급",
-        tags: ["쇼팽", "클래식", "야상곡"]
-      },
-      {
-        title: "Let It Be",
-        composer: "The Beatles",
-        instrument: "기타",
-        difficulty: "초급",
-        tags: ["팝", "비틀즈", "코드연습"]
-      },
-      {
-        title: "Christmas Medley",
-        composer: "Various",
-        instrument: "바이올린",
-        difficulty: "중급",
-        tags: ["크리스마스", "캐롤", "메들리"]
+        difficulty: "4화음",
+        tags: ["호이", "하츠오브아이언", "우한", "우한전투"]
       }
     ];
 
@@ -384,4 +350,5 @@
     renderScores(scores);
   </script>
 </body>
+
 </html>
