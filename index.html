@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>마비노기 모바일 악보 검색</title>
+  <title>악보 검색</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -129,7 +129,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
-      cursor: pointer;           /* 카드에 손가락 커서 */
+      cursor: pointer;
       transition: transform 0.05s ease, box-shadow 0.05s ease;
     }
 
@@ -194,6 +194,39 @@
       padding: 24px 0;
     }
 
+    /* 악보 등록 요청 섹션 */
+    .request-card {
+      margin-top: 24px;
+      background: #e5e7eb;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .request-card p {
+      margin: 0 0 10px;
+    }
+
+    .request-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #4f46e5;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+    }
+
+    .request-btn:hover {
+      background: #4338ca;
+    }
+
     @media (max-width: 600px) {
       .score-card {
         flex-direction: column;
@@ -211,7 +244,7 @@
 <body>
   <header>
     <div>
-      <h1>마비노기 모바일 악보 검색</h1>
+      <h1>악보 검색</h1>
       <span>제목, 작곡가, 태그로 빠르게 찾아보세요.</span>
     </div>
   </header>
@@ -222,7 +255,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) 어릴 적 할머니가 들려주신 옛 전설, 마비노기, 캐롤"
+          placeholder="곡 제목, 작곡가, 태그를 입력하세요. 예) HOI4, 우한, 크리스마스"
         />
       </div>
 
@@ -248,10 +281,23 @@
       <div class="result-summary" id="resultSummary"></div>
       <div class="result-list" id="resultList"></div>
     </section>
+
+    <!-- 🔽 구글 폼으로 악보 등록 요청 보내는 섹션 -->
+    <section class="request-card">
+      <p>원하는 악보가 없다면, 아래 버튼을 눌러 악보 등록을 요청해 주세요.</p>
+      <a
+        class="request-btn"
+        href="https://forms.gle/pPLtjVZ5agdse6Ab9E"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        악보 등록 요청하기
+      </a>
+    </section>
   </main>
 
   <script>
-    // 샘플 악보 데이터
+    // 샘플 악보 데이터 (나중에 서버/DB에서 가져오도록 변경 가능)
     const scores = [
       {
         title: "HOI4 - Battle of Wuhan",
@@ -279,7 +325,7 @@
         return;
       }
 
-      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다. 검색 결과 클릭 시 자동으로 이동됩니다.`;
+      resultSummary.textContent = `${list.length}개의 악보가 검색되었습니다.`;
 
       list.forEach((score) => {
         const card = document.createElement("article");
@@ -316,7 +362,7 @@
         card.appendChild(main);
         card.appendChild(diff);
 
-        // ✅ 카드 전체 클릭 시 게시글로 이동
+        // 카드 전체 클릭 시 게시글로 이동
         if (score.url) {
           card.addEventListener("click", () => {
             window.open(score.url, "_blank", "noopener,noreferrer");
@@ -355,4 +401,3 @@
   </script>
 </body>
 </html>
-
