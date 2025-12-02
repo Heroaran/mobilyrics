@@ -397,7 +397,7 @@ const scores = [
 },
 {
   title: "마비노기 시드피나하 BGM - Shadows in the water",
-  composer: "데브캣",
+  composer: "NEXON",
   instrument: "실로폰, 피아노",
   difficulty: "5화음",
   tags: ["마비노기", "5실로폰합주추천", "넥슨"],
@@ -496,7 +496,7 @@ const scores = [
 },
 {
   title: "마비노기 어릴적 할머니가 들려주신 옛 전설 (월몽 버전)",
-  composer: "데브캣",
+  composer: "NEXON",
   instrument: "실로폰, 류트, 피아노",
   difficulty: "3화음",
   tags: ["마비노기", "독주가능", "넥슨", "할로윈"],
@@ -956,7 +956,7 @@ const scores = [
       {
         title: "메이플스토리 - 대만 야시장",
         composer: "NEXON",
-        instrument: "실로폰", "만돌린", "피아노",
+        instrument: "실로폰, 만돌린, 피아노",
         difficulty: "3화음",
         tags: ["게임", "넥슨", "메이플"],
         url: "https://gall.dcinside.com/mabinogimobile/159555",
@@ -965,7 +965,7 @@ const scores = [
       {
         title: "메이플스토리 - 무릉도원",
         composer: "NEXON",
-        instrument: "플루트", "만돌린", "피아노",
+        instrument: "플루트, 만돌린, 피아노",
         difficulty: "3화음",
         tags: ["게임", "넥슨", "메이플"],
         url: "https://gall.dcinside.com/mabinogimobile/506639",
@@ -974,7 +974,7 @@ const scores = [
       {
         title: "메이플스토리 - 행복한마을",
         composer: "NEXON",
-        instrument: "실로폰", "플루트", "만돌린", "피아노",
+        instrument: "실로폰, 플루트, 만돌린, 피아노",
         difficulty: "3화음",
         tags: ["게임", "넥슨", "메이플", "캐롤", "크리스마스", "겨울"],
         url: "https://gall.dcinside.com/mabinogimobile/698555",
@@ -996,6 +996,141 @@ const scores = [
         difficulty: "3화음",
         tags: ["게임", "닌텐도", "젤다"],
         url: "https://gall.dcinside.com/mabinogimobile/797669",
+        solo: true
+      },
+      {
+        title: "No Promises to Keep(파이널 판타지 VII 리버스 ED)",
+        composer: "植松伸夫(우에마츠 노부오)",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/797669",
+        solo: true
+      },
+      {
+        title: "Endwalker(파이널 판타지 14: 효월의 종언 메인 테마)",
+        composer: "하현우, 김윤아(한국어판)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/328441",
+        solo: true
+      },
+      {
+        title: "파이널 판타지 14 희망의 포대: '탑' BGM)",
+        composer: "Square Enix Co., Ltd.(주식회사 스퀘어 에닉스)",
+        instrument: "플루트, 만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/328465",
+        solo: true
+      },
+      {
+        title: "Twilight Over Thanalan(파이널 판타지 14 울다하 밤 테마)",
+        composer: "植松伸夫(우에마츠 노부오)",
+        instrument: "피아노, 플루트, 만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/458600",
+        solo: true
+      },
+      {
+        title: "Sky Unsundered(파이널 판타지 14 엘피스 낮 테마)",
+        composer: "祖堅正慶(소켄 마사요시)",
+        instrument: "피아노, 류트, 실로폰",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/539937",
+        solo: true
+      },
+      {
+        title: "Return to Oblivion(파이널 판타지 14 공명 4층 BGM)",
+        composer: "祖堅正慶(소켄 마사요시)",
+        instrument: "피아노, 만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/606510",
+        solo: true
+      },
+      {
+        title: "Dragonsong(파이널 판타지 14: 창천의 이슈가르드 메인 테마)",
+        composer: "Arnie Roth(아니 로스)",
+        instrument: "피아노, 류트",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/701041",
+        solo: true
+      },
+      {
+        title: "Flow Together(파이널 판타지 14 베네스 테마)",
+        composer: "祖堅正慶(소켄 마사요시)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "파판", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/926538",
+        solo: true
+      },
+      {
+        title: "마비노기 영웅전 시즌1 에피소드8 엔딩)",
+        composer: "Studio EIM",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "마영전", "데브캣"],
+        url: "https://gall.dcinside.com/mabinogimobile/278639",
+        solo: true
+      },
+      {
+        title: "마비노기 영웅전 세르하 테마",
+        composer: "Studio EIM",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "마영전", "데브캣"],
+        url: "https://gall.dcinside.com/mabinogimobile/371802",
+        solo: true
+      },
+      {
+        title: "마비노기 영웅전 모르반 마을",
+        composer: "Studio EIM",
+        instrument: "만돌린, 바이올린",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "마영전", "데브캣"],
+        url: "https://gall.dcinside.com/mabinogimobile/328485",
+        solo: true
+      },
+      {
+        title: "마비노기 영웅전 실패와 대가 – 에스시더 (The Price of Failure – Aessidhe)",
+        composer: "Studio EIM",
+        instrument: "바이올린, 류트, 피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "마영전", "데브캣"],
+        url: "https://gall.dcinside.com/mabinogimobile/844248",
+        solo: true
+      },
+      {
+        title: "마비노기 영웅전, 잊지 않기 위하여 - 아이단 (Aidan)",
+        composer: "Studio EIM",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "마영전", "데브캣"],
+        url: "https://gall.dcinside.com/mabinogimobile/328485",
+        solo: true
+      },
+      {
+        title: "동물의 숲 - 비둘기둥지(커피숍 BGM)",
+        composer: "Nintendo Co., Ltd.(닌텐도 주식회사)",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["게임", "동숲", "카페"],
+        url: "https://gall.dcinside.com/mabinogimobile/278449",
+        solo: true
+      },
+      {
+        title: "모여봐요 동물의 숲 - 산책",
+        composer: "K.K.",
+        instrument: "실로폰, 플루트, 만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "동숲", "카페"],
+        url: "https://gall.dcinside.com/mabinogimobile/878584",
         solo: true
       }
       // 여기에 다른 악보도 계속 추가
