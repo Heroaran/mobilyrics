@@ -541,7 +541,7 @@ const scores = [
       },
       {
         title: "타레가/미겔 요벳 곡 모음",
-        composer: "타레가", "미겔 요벳",
+        composer: "타레가, 미겔 요벳", 
         instrument: "류트",
         difficulty: "3화음",
         tags: ["타레가", "미겔 요벳", "클래식", "기타"],
