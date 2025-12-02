@@ -520,6 +520,483 @@ const scores = [
   tags: ["장송곡", "독주가능", "임형주"],
   url: "https://gall.dcinside.com/mgallery/board/view?id=mabinogimobile&no=879820",
   solo: true
-}
+},
+      {
+        title: "봇치더락 수록곡 모음 - 1",
+        composer: "봇치더락",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["봇치더락", "모음곡", "애니", "JPOP"],
+        url: "https://gall.dcinside.com/enban/1201",
+        solo: true
+      },
+      {
+        title: "봇치더락 수록곡 모음 - 2",
+        composer: "봇치더락",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["봇치더락", "모음곡", "애니", "JPOP"],
+        url: "https://gall.dcinside.com/enban/1206",
+        solo: true
+      },
+      {
+        title: "타레가/미겔 요벳 곡 모음",
+        composer: "타레가", "미겔 요벳",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["타레가", "미겔 요벳", "클래식", "기타"],
+        url: "https://gall.dcinside.com/enban/1213",
+        solo: true
+      },
+      {
+        title: "밤편지",
+        composer: "아이유",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["아이유", "KPOP", "한국", "가요", "감성", "밤", "새벽"],
+        url: "https://gall.dcinside.com/mabinogimobile/114794",
+        solo: true
+      },
+       {
+        title: "너의 의미",
+        composer: "산울림",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["아이유", "KPOP", "한국", "가요", "감성", "발라드"],
+        url: "https://gall.dcinside.com/mabinogimobile/733389",
+        solo: true
+      },
+      {
+        title: "드라마",
+        composer: "아이유",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["아이유", "KPOP", "한국", "가요", "감성"],
+        url: "https://gall.dcinside.com/mabinogimobile/749514",
+        solo: true
+      },
+      {
+        title: "Rain Drop(레인 드롭)",
+        composer: "아이유",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["아이유", "KPOP", "한국", "가요", "감성"],
+        url: "https://gall.dcinside.com/mabinogimobile/749515",
+        solo: true
+      },
+      {
+        title: "I DO ME(아이 두 미)",
+        composer: "키키(kiii kiii)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["키키", "KPOP", "한국", "가요"],
+        url: "https://gall.dcinside.com/mabinogimobile/385027",
+        solo: true
+      },
+      {
+        title: "Boat",
+        composer: "죠지",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["보트", "KPOP", "한국", "가요"],
+        url: "https://gall.dcinside.com/mabinogimobile/502223",
+        solo: true
+      },
+      {
+        title: "Almond Chocolate(아몬드 초콜릿)",
+        composer: "아일릿(ILLIT)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["아몬드 초콜렛", "KPOP", "한국", "가요", "걸그룹"],
+        url: "https://gall.dcinside.com/mabinogimobile/798421",
+        solo: true
+      },
+      {
+        title: "Feel My Rhythm(필 마이 리듬)",
+        composer: "레드벨벳(Red Velvet)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["KPOP", "한국", "가요", "걸그룹"],
+        url: "https://gall.dcinside.com/mabinogimobile/848076",
+        solo: true
+      },
+      {
+        title: "Love Attack(러브 어택)",
+        composer: "RESCENE(리센느)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["KPOP", "한국", "가요", "걸그룹"],
+        url: "https://gall.dcinside.com/mabinogimobile/867497",
+        solo: true
+      },
+      {
+        title: "instagram(인스타그램)",
+        composer: "DEAN(딘)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["KPOP", "한국", "가요", "감성"],
+        url: "https://gall.dcinside.com/mabinogimobile/877338",
+        solo: true
+      },
+      {
+        title: "Storm(스톰)",
+        composer: "루머스",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["KPOP", "한국", "가요"],
+        url: "https://gall.dcinside.com/mabinogimobile/1052625",
+        solo: true
+      },
+      {
+        title: "FAKE LOVE(페이크 러브)",
+        composer: "BTS(방탄소년단)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["KPOP", "한국", "가요", "팝송"],
+        url: "https://gall.dcinside.com/mabinogimobile/1052607",
+        solo: true
+      },
+      {
+        title: "言って。(말해줘)",
+        composer: "ヨルシカ(요루시카)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["JPOP", "일본", "가요", "팝송"],
+        url: "https://gall.dcinside.com/mabinogimobile/426568",
+        solo: true
+      },
+      {
+        title: "忘れてください(잊어주세요)",
+        composer: "ヨルシカ(요루시카)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["JPOP", "일본", "가요", "팝송"],
+        url: "https://gall.dcinside.com/mabinogimobile/429685",
+        solo: true
+      },
+      {
+        title: "Overdose(오버도즈)",
+        composer: "Natori(나토리)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["JPOP", "일본", "가요", "팝송"],
+        url: "https://gall.dcinside.com/mabinogimobile/500755",
+        solo: true
+      },
+      {
+        title: "ひゅるりらぱっぱ(휴루리라팟파)",
+        composer: "tuki.(츠키.)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["JPOP", "일본", "가요", "팝송"],
+        url: "https://gall.dcinside.com/mabinogimobile/672855",
+        solo: true
+      },
+      {
+        title: "Erika(에리카)",
+        composer: "독일민요",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["독일", "유럽", "민요", "군가"],
+        url: "https://gall.dcinside.com/mabinogimobile/123297",
+        solo: true
+      },
+      {
+        title: "Säkkijärven Polkka(세키예르벤 폴카)",
+        composer: "핀란드민요",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["핀란드", "유럽", "민요"],
+        url: "https://gall.dcinside.com/mabinogimobile/201627",
+        solo: true
+      },
+      {
+        title: "September(셉텐버, 9월)",
+        composer: "Earth, Wind & Fire(어스, 윈드 & 파이어)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["팝송", "디스코", "펑크", "R&B"],
+        url: "https://gall.dcinside.com/mabinogimobile/387053",
+        solo: true
+      },
+      {
+        title: "I Don't Care(아이 돈 케어)",
+        composer: "Ed Sheeran, Justin Bieber(애드 시런, 저스틴 비버)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["팝송", "아프로비츠", "댄스 팝", "R&B"],
+        url: "https://gall.dcinside.com/mabinogimobile/730500",
+        solo: true
+      },
+      {
+        title: "Nothing’s Gonna Change My Love for You(낫띵 거너 챈스 마이 러브 포 유)",
+        composer: "George Benson(조지 벤슨)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["팝송", "재즈", "펑크", "R&B", "소울"],
+        url: "https://gall.dcinside.com/mabinogimobile/895599",
+        solo: true
+      },
+      {
+        title: "Dancing in the Moonlight(댄싱 인 더 문라이트)",
+        composer: "Toploader(탑로더)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["팝송", "팝 록", "인디 팝", "포스트 브릿팝"],
+        url: "https://gall.dcinside.com/mabinogimobile/907225",
+        solo: true
+      },
+      {
+        title: "Cups(컵스)",
+        composer: "Anna kendrick(애나 켄드릭)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["팝송", "포크 팝"],
+        url: "https://gall.dcinside.com/mabinogimobile/1342785",
+        solo: true
+      },
+      {
+        title: "Le Cygne(백조)",
+        composer: "Camille Saint-Saëns(카미유 생상스)",
+        instrument: "바이올린, 플루트, 피아노",
+        difficulty: "3화음",
+        tags: ["클래식", "낭만주의"],
+        url: "https://gall.dcinside.com/mabinogimobile/220881",
+        solo: true
+      },
+      {
+        title: "Oblivion(망각)",
+        composer: "Astor Piazzolla(아스토르 피아졸라)",
+        instrument: "바이올린, 플루트, 피아노",
+        difficulty: "3화음",
+        tags: ["클래식", "낭만주의", "재즈", "발라드", "탱고"],
+        url: "https://gall.dcinside.com/mabinogimobile/403031",
+        solo: true
+      },
+      {
+        title: "French Suite No. 4 E flat major, 1 Allemande(프랑스 모음곡 4번 첫 곡 알레망드)",
+        composer: "Johann Sebastian Bach(요한 제바스티안 바흐)",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["클래식", "바흐", "하프시코드"],
+        url: "https://gall.dcinside.com/mabinogimobile/473696",
+        solo: true
+      },
+      {
+        title: "Etude, Op.10, No.12 'Revolutionary'(연습곡, Op.10, 12번 '혁명')",
+        composer: "Frédéric Chopin(프레데리크 쇼팽)",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["클래식", "쇼팽", "피아노"],
+        url: "https://gall.dcinside.com/mabinogimobile/567885",
+        solo: true
+      },
+      {
+        title: "Etude, Op.25, No.2 (연습곡, Op.25, 2번 '꿀벌')",
+        composer: "Frédéric Chopin(프레데리크 쇼팽)",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["클래식", "쇼팽", "피아노"],
+        url: "https://gall.dcinside.com/mabinogimobile/571583",
+        solo: true
+      },
+      {
+        title: "Tango en Skai(가짜 탱고)",
+        composer: "Roland Dyens(롤랑 디앙)",
+        instrument: "만돌린, 류트",
+        difficulty: "3화음",
+        tags: ["클래식", "쇼팽", "통기타"],
+        url: "https://gall.dcinside.com/mabinogimobile/761331",
+        solo: true
+      },
+      {
+        title: "Fly A Letter To The Wind(바람에 쓰는 편지)",
+        composer: "줄라이(July)",
+        instrument: "피아노, 만돌린",
+        difficulty: "3화음",
+        tags: ["뉴에이지", "명상", "세미 클래식"],
+        url: "https://gall.dcinside.com/mabinogimobile/114518",
+        solo: true
+      },
+      {
+        title: "Stardust (스타더스트, 별의 눈물)",
+        composer: "불꽃심장",
+        instrument: "피아노, 류트",
+        difficulty: "3화음",
+        tags: ["뉴에이지", "명상", "세미 클래식"],
+        url: "https://gall.dcinside.com/mabinogimobile/122061",
+        solo: true
+      },
+      {
+        title: "僕の戦争(나의 전쟁, 진격의 거인 더 파이널 시즌 1쿨 OP)",
+        composer: "神聖かまってちゃん(신세이 카맛테쨩)",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["JPOP", "애니메이션", "진격거", "록"],
+        url: "https://gall.dcinside.com/mabinogimobile/203182",
+        solo: true
+      },
+      {
+        title: "푸른 꿈을 함께(신비한 바다의 나디아 OP)",
+        composer: "이창희",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["가요", "애니메이션", "한국", "투니버스"],
+        url: "https://gall.dcinside.com/mabinogimobile/508500",
+        solo: true
+      },
+      {
+        title: "木漏れ日のエール(나뭇잎 사이로 비치는 햇빛의 에일, 우마무스메 2기 ED)",
+        composer: "トウカイテイオー(토카이 테이오), メジロマックイーン(메지로 맥퀸)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["일본", "애니메이션", "말딸", "Machico", "오오니시 사오리"],
+        url: "https://gall.dcinside.com/mabinogimobile/617196",
+        solo: true
+      },
+      {
+        title: "プラスチック・アンブレラ(플라스틱 엄브렐라)",
+        composer: "三峰結華(미츠미네 유이카)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["일본", "JPOP", "애니메이션", "아이마스", "283 프로덕션", "키스이 시오", "샤니마스"],
+        url: "https://gall.dcinside.com/mabinogimobile/643757",
+        solo: true
+      },
+      {
+        title: "If I Am With You(주술회전 2기 삽입곡)",
+        composer: "照井順政(테루이 요시마사)",
+        instrument: "피아노, 만돌린",
+        difficulty: "3화음",
+        tags: ["일본", "애니메이션", "주술회전", "천상천하 유아독존", "고죠 사토루"],
+        url: "https://gall.dcinside.com/mabinogimobile/702203",
+        solo: true
+      },
+      {
+        title: "One Last Kiss(신 에반게리온 극장판 𝄇 주제곡)",
+        composer: "宇多田ヒカル(우타다 히카루)",
+        instrument: "피아노, 만돌린",
+        difficulty: "3화음",
+        tags: ["애니메이션", "에반게리온", "일본"],
+        url: "https://gall.dcinside.com/mabinogimobile/702203",
+        solo: true
+      },
+      {
+        title: "월레스와 그로밋 메인테마",
+        composer: "Julian Nott(줄리안 노트)",
+        instrument: "샬루모, 플루트, 만돌린",
+        difficulty: "3화음",
+        tags: ["애니메이션", "BBC", "영국"],
+        url: "https://gall.dcinside.com/mabinogimobile/928370",
+        solo: true
+      },
+      {
+        title: "ターゲット ~赤い衝撃~(타겟 ~붉은 충격~, 디지몬어드벤처2 OP)",
+        composer: "和田光司(와다 코지)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["애니메이션", "일본", "디지몬"],
+        url: "https://gall.dcinside.com/mabinogimobile/928370",
+        solo: true
+      },
+      {
+        title: "セキレイ(세키레이, 세키레이 1기 OP)",
+        composer: "早見沙織(하야미 사오리), 井上麻里奈(이노우에 마리나), 花澤香菜(하나자와 카나), 遠藤綾(엔도 아야)",
+        instrument: "바이올린, 만돌린, 피아노",
+        difficulty: "3화음",
+        tags: ["애니메이션", "일본", "세미 락"],
+        url: "https://gall.dcinside.com/mabinogimobile/1029320",
+        solo: true
+      },
+      {
+        title: "라테일 제나디아 중앙구역",
+        composer: "ACTOZ SOFT CO., LTD.",
+        instrument: "류트, 피아노",
+        difficulty: "3화음",
+        tags: ["게임", "BGM", "라테일"],
+        url: "https://gall.dcinside.com/mabinogimobile/122299",
+        solo: true
+      },
+       {
+        title: "라테일 용경",
+        composer: "ACTOZ SOFT CO., LTD.",
+        instrument: "류트, 플루트, 피아노",
+        difficulty: "3화음",
+        tags: ["게임", "BGM", "라테일"],
+        url: "https://gall.dcinside.com/mabinogimobile/345544",
+        solo: true
+      },
+      {
+        title: "라테일 고목나무숲",
+        composer: "ACTOZ SOFT CO., LTD.",
+        instrument: "플루트, 만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "BGM", "라테일"],
+        url: "https://gall.dcinside.com/mabinogimobile/356308",
+        solo: true
+      },
+      {
+        title: "The Dragonborn Comes(드래곤본이 온다네, 엘더스크롤 5: 스카이림 삽입곡)",
+        composer: "Bethesda Game Studios",
+        instrument: "류트",
+        difficulty: "3화음",
+        tags: ["게임", "스카이림", "엘더스크롤"],
+        url: "https://gall.dcinside.com/mabinogimobile/129309",
+        solo: true
+      },
+      {
+        title: "레이튼 교수와 이상한 마을 OST - 01 레이튼 교수의 테마",
+        composer: "株式会社レベルファイブ(주식회사 레벨파이브)",
+        instrument: "바이올린",
+        difficulty: "6화음",
+        tags: ["게임", "스카이림", "엘더스크롤"],
+        url: "https://gall.dcinside.com/mabinogimobile/129309",
+        solo: false
+      },
+      {
+        title: "메이플스토리 - 대만 야시장",
+        composer: "NEXON",
+        instrument: "실로폰", "만돌린", "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "메이플"],
+        url: "https://gall.dcinside.com/mabinogimobile/159555",
+        solo: true
+      },
+      {
+        title: "메이플스토리 - 무릉도원",
+        composer: "NEXON",
+        instrument: "플루트", "만돌린", "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "메이플"],
+        url: "https://gall.dcinside.com/mabinogimobile/506639",
+        solo: true
+      },
+      {
+        title: "메이플스토리 - 행복한마을",
+        composer: "NEXON",
+        instrument: "실로폰", "플루트", "만돌린", "피아노",
+        difficulty: "3화음",
+        tags: ["게임", "넥슨", "메이플", "캐롤", "크리스마스", "겨울"],
+        url: "https://gall.dcinside.com/mabinogimobile/698555",
+        solo: true
+      },
+      {
+        title: "젤다의전설 무쥬라의 가면 지상 BGM",
+        composer: "Nintendo Co., Ltd.(닌텐도 주식회사)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "닌텐도", "젤다"],
+        url: "https://gall.dcinside.com/mabinogimobile/275306",
+        solo: true
+      },
+      {
+        title: "젤다의전설 몽환의 모래시계 지상 BGM",
+        composer: "Nintendo Co., Ltd.(닌텐도 주식회사)",
+        instrument: "만돌린",
+        difficulty: "3화음",
+        tags: ["게임", "닌텐도", "젤다"],
+        url: "https://gall.dcinside.com/mabinogimobile/797669",
+        solo: true
+      }
       // 여기에 다른 악보도 계속 추가
     ];
