@@ -1132,6 +1132,24 @@ const scores = [
         tags: ["게임", "동숲", "카페"],
         url: "https://gall.dcinside.com/mabinogimobile/878584",
         solo: true
+      },
+      {
+        title: "Keep Weaving Your Spider Way",
+        composer: "거미입니다만, 문제라도?",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["거미입니다만문제라도", "애니메이션", "OP", "일본"],
+        url: "https://mabiscore.mycafe24.com/mobinogi/FLarQ0H87_fZ",
+        solo: true
+      },
+      {
+        title: "Connect",
+        composer: "마법소녀 마도카☆마기카 TVA OP",
+        instrument: "피아노",
+        difficulty: "3화음",
+        tags: ["마도카마기카", "애니메이션", "OP", "일본"],
+        url: "https://mabiscore.mycafe24.com/mobinogi/WH4ZJt11Jvrv",
+        solo: true
       }
       // 여기에 다른 악보도 계속 추가
     ];
