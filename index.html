@@ -176,13 +176,13 @@
       min-width: 60px;
     }
 
-    /* 화음별 스타일 */
-    .difficulty-1화음,
-    .difficulty-2화음,
-    .difficulty-3화음,
-    .difficulty-4화음,
-    .difficulty-5화음,
-    .difficulty-6화음 {
+    /* 인곡별 스타일 */
+    .difficulty-1인곡,
+    .difficulty-2인곡,
+    .difficulty-3인곡,
+    .difficulty-4인곡,
+    .difficulty-5인곡,
+    .difficulty-6인곡 {
       background: #eff6ff;
       color: #1d4ed8;
     }
@@ -275,15 +275,15 @@
             <option value="샬루모">샬루모</option>
           </select>
 
-          <label for="difficultyFilter">화음</label>
+          <label for="difficultyFilter">인곡</label>
           <select id="difficultyFilter">
             <option value="">전체</option>
-            <option value="1화음">1화음</option>
-            <option value="2화음">2화음</option>
-            <option value="3화음">3화음</option>
-            <option value="4화음">4화음</option>
-            <option value="5화음">5화음</option>
-            <option value="6화음">6화음</option>
+            <option value="1인곡">1인곡</option>
+            <option value="2인곡">2인곡</option>
+            <option value="3인곡">3인곡</option>
+            <option value="4인곡">4인곡</option>
+            <option value="5인곡">5인곡</option>
+            <option value="6인곡">6인곡</option>
           </select>
         </div>
 
@@ -374,10 +374,10 @@
           tags.appendChild(span);
         });
 
-        // 독주/합주 태그 추가
+        // 독주/인곡 태그 추가
         const soloTag = document.createElement("span");
         soloTag.className = "tag";
-        soloTag.textContent = score.solo ? "독주 가능" : "합주 추천";
+        soloTag.textContent = score.solo ? "독주 가능" : "인곡 추천";
         tags.appendChild(soloTag);
 
         main.appendChild(title);
@@ -456,6 +456,7 @@
   </script>
 </body>
 </html>
+
 
 
 
